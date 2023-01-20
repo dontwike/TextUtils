@@ -1,11 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-<<<<<<< HEAD
 // import {Link} from 'react-router-dom'
-=======
-import {Link} from 'react-router-dom'
-
->>>>>>> main
 
 export default function Navbar(props) {
   return (
@@ -18,19 +13,12 @@ export default function Navbar(props) {
   <div className="collapse navbar-collapse" id="navbarSupportedContent">
     <ul className="navbar-nav mr-auto">
       <li className="nav-item active">
-<<<<<<< HEAD
         <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
         {/* <Link className="nav-link" to="/">Home <span className="sr-only">(current)</span></Link> */}
       </li>
       <li className="nav-item">
       {/* <a className="nav-link" href="#">About</a> */}
       {/* <Link className="nav-link" to="/about">About</Link> */}
-=======
-        <Link className="nav-link" to="/">Home <span className="sr-only">(current)</span></Link>
-      </li>
-      <li className="nav-item">
-        <Link className="nav-link" to="/about">About</Link>
->>>>>>> main
       </li>
     </ul>
     <div className={`form-check form-switch text-${props.mode === 'light'? "dark": "light"}`}>
