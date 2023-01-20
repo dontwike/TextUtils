@@ -48,9 +48,9 @@ export default function TextArea(props) {
     </div>
     <div className="text-center">
         <button className="btn btn-primary" onClick={handleUpperCaseClick}>Convert to Uppercase</button>
-        <button className="btn btn-primary ml-3" onClick={handleLowerCaseClick}>Convert to LowerCase</button>
-        <button className="btn btn-primary ml-3" onClick={handleCamelCaseClick}>Convert to CamelCase</button>
-        <button className="btn btn-primary ml-3" onClick={handleClearClick}>Clear</button>
+        <button className="btn btn-primary ml-3 my-1" onClick={handleLowerCaseClick}>Convert to LowerCase</button>
+        <button className="btn btn-primary ml-3 my-1" onClick={handleCamelCaseClick}>Convert to CamelCase</button>
+        <button className="btn btn-primary ml-3 my-1" onClick={handleClearClick}>Clear</button>
     </div>
     </div>
 
