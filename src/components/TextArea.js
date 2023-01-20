@@ -5,6 +5,7 @@ export default function TextArea(props) {
     const handleUpperCaseClick = ()=>{
         let newText = text.toUpperCase();
         setText(newText);
+        props.showAlert("Text converted to Upper case", "success");
     };
 
     const handleOnChange = (event)=>{
@@ -13,10 +14,12 @@ export default function TextArea(props) {
 
     const handleLowerCaseClick =()=>{
         setText(text.toLowerCase());
+        props.showAlert("Text converted to Lower case", "success");
     };
 
     const handleClearClick = ()=>{
         setText('');
+        props.showAlert("Text Cleared", "success");
     };
 
     const handleCamelCaseClick = ()=>{
@@ -32,12 +35,13 @@ export default function TextArea(props) {
             }
         }
         setText(word.trim());
+        props.showAlert("Text converted to Camel case", "success");
     };
 
     const [text, setText] = useState('Enter text');
   return (
     <>
-    <div className='container'>
+    <div className={`container text-${props.mode === "light"?"dark":"light"}`}>
         <h2>{props.heading}</h2>
         <div className="mb-3">
         <textarea className="form-control" id="myBox" rows="8" value={text} onChange={handleOnChange}></textarea>
@@ -50,12 +54,12 @@ export default function TextArea(props) {
     </div>
     </div>
 
-    <div className="container my-3">
+    <div className={`container my-3 text-${props.mode === "light"?"dark":"light"}`}>
         <h2>Your Text Summary</h2>
         <p>No of words = {text.split(" ").length} and No of characters = {text.length}</p>
         <p>{0.008*text.split(" ").length} seconds needed to read the paragraph.</p>
     </div>
-    <div className="container my-4">
+    <div className={`container my-4 text-${props.mode === "light"?"dark":"light"}`}>
         <h2>PREVIEW</h2>
         <p>{text}</p>
         
