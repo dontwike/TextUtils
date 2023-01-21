@@ -22,6 +22,12 @@ export default function TextArea(props) {
         props.showAlert("Text Cleared", "success");
     };
 
+    const handleCopyClick = ()=>{
+        let copy = text;
+        navigator.clipboard.writeText(copy.toString());
+        props.showAlert("Text copied to clipboard", "success");
+    };
+
     const handleCamelCaseClick = ()=>{
         let txt = text.toLowerCase()+" ";
         let p=0;
@@ -38,7 +44,18 @@ export default function TextArea(props) {
         props.showAlert("Text converted to Camel case", "success");
     };
 
-    const [text, setText] = useState('Enter text');
+    let countWords = (txt) => {
+        let st = txt.trim();
+        let n = [];
+        if (st.length === 0){
+            return st.length;
+        } else {
+            n = st.split(" ");
+        }
+        return n.length;
+    };
+
+    const [text, setText] = useState('Enter Text Here:');
   return (
     <>
     <div className={`container text-${props.mode === "light"?"dark":"light"}`}>
@@ -50,13 +67,14 @@ export default function TextArea(props) {
         <button className="btn btn-primary" onClick={handleUpperCaseClick}>Convert to Uppercase</button>
         <button className="btn btn-primary ml-3 my-1" onClick={handleLowerCaseClick}>Convert to LowerCase</button>
         <button className="btn btn-primary ml-3 my-1" onClick={handleCamelCaseClick}>Convert to CamelCase</button>
+        <button className="btn btn-primary ml-3 my-1" onClick={handleCopyClick}>Copy Text</button>
         <button className="btn btn-primary ml-3 my-1" onClick={handleClearClick}>Clear</button>
     </div>
     </div>
 
     <div className={`container my-3 text-${props.mode === "light"?"dark":"light"}`}>
         <h2>Your Text Summary</h2>
-        <p>No of words = {text.split(" ").length} and No of characters = {text.length}</p>
+        <p>No of words = {countWords(text)} and No of characters = {text.length}</p>
         <p>{0.008*text.split(" ").length} seconds needed to read the paragraph.</p>
     </div>
     <div className={`container my-4 text-${props.mode === "light"?"dark":"light"}`}>
